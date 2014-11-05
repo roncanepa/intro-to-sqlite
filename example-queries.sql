@@ -16,7 +16,7 @@ FROM Invoice GROUP BY CustomerId
 
 -- using values in parenthesis = really handy!
 
--- Query N
+-- Query 4
 SELECT * FROM Customer
 WHERE Country IN ("Norway", "Canada")
 
@@ -25,25 +25,25 @@ WHERE Country IN ("Norway", "Canada")
 
 -- First, lets get an idea with what we're doing.
 
--- Query N
+-- Query 5
 SELECT * FROM Invoice WHERE InvoiceDate >= "2009-01-01" AND InvoiceDate <= "2009-03-31"
 
 -- Now lets just restrict the number of fields we return by removing * and adding the field names:
 
--- Query N
+-- Query 6
 
 SELECT distinct(CustomerId) FROM Invoice WHERE InvoiceDate >= "2009-01-01" AND InvoiceDate <= "2009-03-31"
 
 -- Now lets combine the previous two into something very useful:
 
--- Query N
+-- Query 7
 
 SELECT * FROM Customer WHERE CustomerId IN (SELECT distinct(CustomerId) FROM Invoice WHERE InvoiceDate >= "2009-01-01" AND InvoiceDate <= "2009-03-31")
 
 
 -- Advanced:  Using a join to pull together information from > 1 table
 
--- Query n
+-- Query 8
 SELECT Customer.*, Invoice.* FROM customer 
 JOIN Invoice ON Invoice.CustomerId = Customer.CustomerId
 ORDER BY CustomerId ASC
