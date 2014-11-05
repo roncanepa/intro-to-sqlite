@@ -15,10 +15,13 @@ drv <- dbDriver("SQLite")
 #
 # 
 
+
+###########################
+# NOTE NOTE NOTE NOTE NOTE
 #NOTE NOTE NOTE: You need to update this path to match your own system!
 # mine is: 
-con <- dbConnect(drv, "/Users/agnor/Documents/working/intro to sqllite/sample.sqlite")
-#con <- dbConnect(drv, "/put/the/full/path/to your database/here/db.sqlite")
+#con <- dbConnect(drv, "/Users/agnor/Documents/working/intro to sqllite/sample.sqlite")
+con <- dbConnect(drv, "/put/the/full/path/to your database/here/db.sqlite")
 
 
 raw_data = dbGetQuery(con, "SELECT Customer.*, Invoice.* FROM customer 
